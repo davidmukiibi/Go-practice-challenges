@@ -1,3 +1,4 @@
+// Package raindrops converts an integer number into string phrases
 package raindrops
 
 import (
@@ -10,25 +11,17 @@ import (
 // "Pling" if it s 3, "Plang" if it is 5, and "Plong" if it is 7
 func Convert(number int) string {
 
-	var collection []int
 	var results []string
 
 	// Checking for factors in the given number
-	for eachNumber := 1; eachNumber <= number; eachNumber++ {
-		if number%eachNumber == 0 {
-			collection = append(collection, eachNumber)
-		}
+	if number%3 == 0 {
+		results = append(results, "Pling")
 	}
-	for _, i := range collection {
-		if i == 3 {
-			results = append(results, "Pling")
-		}
-		if i == 5 {
-			results = append(results, "Plang")
-		}
-		if i == 7 {
-			results = append(results, "Plong")
-		}
+	if number%5 == 0 {
+		results = append(results, "Plang")
+	}
+	if number%7 == 0 {
+		results = append(results, "Plong")
 	}
 	if len(results) == 0 {
 		// Converts the number into a strng
